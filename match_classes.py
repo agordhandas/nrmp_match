@@ -34,7 +34,7 @@ class Applicants:
             print "%s does not have rankings associated" %(applicant)
 
 
-class tempMatchBuffer():
+class tempMatchBuffer:
     def __init__(self, program_list):
         """Example program_list:
         {'MGH': {'positions': 5,
