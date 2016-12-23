@@ -33,6 +33,9 @@ class Applicants:
         else:
             print "%s does not have rankings associated" %(applicant)
 
+    def applicantRankingList(self, applicant):
+        return self.applicant_rankings[applicant]
+
 
 class tempMatchBuffer:
     def __init__(self, program_list):
