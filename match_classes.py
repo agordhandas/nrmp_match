@@ -67,7 +67,7 @@ class tempMatchBuffer:
         this_applicant_rank = self.positionOfApplicant(program, applicant)
 
         if any([this_applicant_rank < x for x in matched_applicant_ranks.values()]):
-            lowest_rank_candidate = [key for key,value in matched_applicant_ranks.iteritems() if value == min(matched_applicant_ranks.values())][0]
+            lowest_rank_candidate = [key for key,value in matched_applicant_ranks.iteritems() if value == max(matched_applicant_ranks.values())][0]
         else:
             lowest_rank_candidate = ''
         return lowest_rank_candidate
