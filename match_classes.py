@@ -19,7 +19,8 @@ class Applicants:
     """
     def __init__(self, applicants_rankings):
         self.applicant_rankings = applicants_rankings
-        self.applicants = shuffle (applicant_rankings.keys())
+        self.applicants = (self.applicant_rankings.keys())
+        _ignore = shuffle (self.applicants)
 
     def isEmpty(self):
         return self.applicants == []
