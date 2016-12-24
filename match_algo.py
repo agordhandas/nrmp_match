@@ -2,6 +2,7 @@ __author__ = 'Ankit'
 
 from match_classes import Applicants
 from match_classes import tempMatchBuffer
+import pickle
 
 def run_algo(applicant_rankings, program_list):
     applicants_class = Applicants(applicant_rankings)
@@ -26,5 +27,9 @@ def run_algo(applicant_rankings, program_list):
                                                                                      program_class.positionOfApplicant(program, lower_candidate),
                                                                                      program)
                     break
+    results_dictionary = {'results': program_class.match_buffer,
+                          'applicants': applicant_rankings,
+                          'programs': program_list}
+    pickle.dump(results_dictionary, open('match_results.p', 'wb'))
     return program_class.match_buffer
 

@@ -6,14 +6,14 @@ import pickle
 import match_algo
 
 #pull down list of programs
-programs = pickle.load(open('programs.p', 'rb'))[0:5]  # pick the first x programs to ensure fast running
+programs = pickle.load(open('programs.p', 'rb'))  # pick the first x programs to ensure fast running
 
 #Make a list of 1000 applicants
 #TODO: perhaps make it with a bunch of names
-applicants = ['appl_' + str(x) for x in range(1000)]  # Generate a list of x applicants
+applicants = ['appl_' + str(x) for x in range(1600)]  # Generate a list of x applicants
 
 # Each program invites 40 to 60 students from a group of 70 students
-invited_applicants = {program: [applicants[x] for x in np.unique(np.random.choice(np.arange(0, 70), random.randint(40, 60)))] for program in programs}
+invited_applicants = {program: [applicants[x] for x in np.unique(np.random.choice(np.arange(0, 1600), random.randint(40, 60)))] for program in programs}
 
 # Each program randomly ranks between 15 and 25 of the candidates it interviews
 ranked_applicants = {program: ([invited_applicants[program][x] for x in np.unique(np.random.choice(len(invited_applicants[program]), random.randint(15, 25)))]) for program in programs}
