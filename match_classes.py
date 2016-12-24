@@ -81,6 +81,13 @@ class tempMatchBuffer:
     def insert_candidate_rank (self, program, applicant, rank):
         self.program_list[program]['rankings'].insert(rank - 1, applicant)
 
+    def remove_candidate(self, program, applicant):
+        self.program_list[program]['rankings'].remove(applicant)
+
+    def edit_candidate_rank(self, program, applicant, new_rank):
+        self.remove_candidate(program, applicant)
+        self.insert_candidate_rank(program, applicant, new_rank)
+
     def unseatCandidate (self, program, applicant):
         if applicant in self.match_buffer[program]:
             self.match_buffer[program].remove(applicant)
