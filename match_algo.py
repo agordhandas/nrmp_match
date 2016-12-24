@@ -22,9 +22,9 @@ def run_algo(applicant_rankings, program_list):
                     applicants_class.reinsertApplicant(lower_candidate)
                     program_class.tempMatch(program, applicant)
                     print "Applicant %s (ranked %d) unseats %s (ranked %d) at %s" % (applicant,
-                                                                                     program_class.positionOfApplicant(program, applicant),
+                                                                                     program_class.positionOfApplicant(program, applicant) + 1,
                                                                                      lower_candidate,
-                                                                                     program_class.positionOfApplicant(program, lower_candidate),
+                                                                                     program_class.positionOfApplicant(program, lower_candidate) + 1,
                                                                                      program)
                     break
     results_dictionary = {'results': program_class.match_buffer,

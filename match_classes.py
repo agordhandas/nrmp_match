@@ -37,6 +37,12 @@ class Applicants:
     def applicantRankingList(self, applicant):
         return self.applicant_rankings[applicant]
 
+    def add_applicant (self, applicant_name):
+        self.applicants.append(applicant_name)
+
+    def modify_applicant_rankings (self, applicant_name, applicant_rankings):
+        self.applicant_rankings[applicant_name] = applicant_rankings
+
 
 class tempMatchBuffer:
     def __init__(self, program_list):
@@ -71,6 +77,16 @@ class tempMatchBuffer:
         else:
             lowest_rank_candidate = ''
         return lowest_rank_candidate
+
+    def insert_candidate_rank (self, program, applicant, rank):
+        self.program_list[program]['rankings'].insert(rank - 1, applicant)
+
+    def remove_candidate(self, program, applicant):
+        self.program_list[program]['rankings'].remove(applicant)
+
+    def edit_candidate_rank(self, program, applicant, new_rank):
+        self.remove_candidate(program, applicant)
+        self.insert_candidate_rank(program, applicant, new_rank)
 
     def unseatCandidate (self, program, applicant):
         if applicant in self.match_buffer[program]:
